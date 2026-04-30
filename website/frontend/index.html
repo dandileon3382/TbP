@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Form Coach — Real-Time Exercise Analysis</title>
+    <meta name="description" content="Real-time AI-powered exercise form coach. Get live biomechanical feedback on squats, lunges, pushups, tricep dips, and sit-ups.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <span class="brand-icon">🏋️</span>
+                <h1>AI Form Coach</h1>
+            </div>
+            <div class="controls">
+                <select id="exerciseSelect">
+                    <option value="squats">Squats</option>
+                    <option value="lunges">Lunges</option>
+                    <option value="pushups">Pushups</option>
+                    <option value="tricep_dips">Tricep Dips</option>
+                    <option value="situps">Sit-Ups</option>
+                </select>
+                <button id="startBtn">▶ Start Session</button>
+                <button id="stopBtn" disabled>■ Stop Session</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline muted></video>
+                    <canvas id="landmarkCanvas"></canvas>
+
+                    <!-- Pause Overlay -->
+                    <div id="pauseOverlay" class="pause-overlay hidden">
+                        <div class="pause-icon">⏸</div>
+                        <div class="pause-label">PAUSED</div>
+                        <div class="pause-hint">Press <kbd>Space</kbd> to resume</div>
+                    </div>
+                </div>
+                <div class="space-hint" id="spaceHint">Press <kbd>Space</kbd> to pause</div>
+            </div>
+
+            <div class="hud">
+                <!-- Sensor data collected internally, not shown to user -->
+                <div class="sensor-grid" style="display:none;">
+                    <div class="sensor-card waste-card">
+                        <span class="sensor-label">Waist Stability</span>
+                        <div class="sensor-value-group">
+                            <span id="waistTilt" class="sensor-value">--</span>
+                            <span class="sensor-unit">°</span>
+                        </div>
+                        <div class="sensor-status" id="waistStatus">Disconnected</div>
+                    </div>
+                </div>
+
+                <div class="rep-counter">
+                    <h2>Reps</h2>
+                    <p id="repCount">0</p>
+                </div>
+
+                <div class="feedback-panel">
+                    <h2>Live Feedback</h2>
+                    <p id="feedbackText">Waiting to start...</p>
+                </div>
+
+                <div class="debug-panel">
+                    <h2>Status</h2>
+                    <p id="debugText">Idle</p>
+                </div>
+            </div>
+        </main>
+
+        <section id="analysisSection" class="hidden">
+            <h2>📊 Session Summary</h2>
+            <div id="finalAnalysisContent">Loading...</div>
+            <a id="downloadLink" class="hidden">Download Recorded Video</a>
+        </section>
+
+        <!-- Trainer Chat Widget -->
+        <div id="trainerChat" class="chat-widget">
+            <div class="chat-header">
+                <span class="chat-title">💬 Ask Trainer</span>
+                <button id="chatToggle" class="chat-toggle">_</button>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+                <div class="msg trainer">Hello! I'm your Trainer. How can I help you today?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Ask about your form...">
+                <button id="chatSend">Send</button>
+            </div>
+        </div>
+
+        <!-- Tutorial Modal -->
+        <div id="tutorialModal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h2>📹 Watch Before You Start</h2>
+                <p>Study the correct form first — click "I'm Ready" when you want to begin.</p>
+                <video id="tutorialVideo" controls width="100%"></video>
+                <div class="modal-actions">
+                    <button id="skipBtn" class="skip-btn">Skip</button>
+                    <button id="readyBtn">I'm Ready — Let's Go</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden canvas for frame capture -->
+    <canvas id="captureCanvas" style="display:none;"></canvas>
+
+    <!-- Dependencies -->
+    <script src="app.js?v=200"></script>
+</body>
+</html>

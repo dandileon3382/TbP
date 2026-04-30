@@ -1,0 +1,91 @@
+{
+  "exercise": "pushups",
+
+  "description": "The push-up is a bodyweight upper-body pressing movement that works the pectoral muscles, anterior deltoids, and triceps while simultaneously demanding core stability throughout. It is one of the most functional and scalable exercises — but it is commonly done with terrible form. The body must remain a rigid plank from head to heels for every single rep.",
+
+  "cues": [
+    "Set your hands slightly wider than shoulder-width and angle fingers slightly outward",
+    "Before you move an inch — brace your abs as if you're about to take a punch",
+    "Squeeze your glutes so tight you could crack a walnut",
+    "Lower your chest — not your stomach, not your hips — your chest to the floor",
+    "Think about pulling the floor apart with your hands as you push up",
+    "Your elbows should point back and slightly out — not flaring out at 90 degrees"
+  ],
+
+  "rules": [
+    "Maintain a straight body line from head to heels throughout",
+    "Keep core engaged and hips level at all times",
+    "Lower chest until it nearly touches the ground",
+    "Keep elbows at 30 to 45 degrees relative to torso",
+    "Push evenly through both hands",
+    "Keep neck neutral — do not crane forward or drop the chin"
+  ],
+
+  "constraints": [
+    "Do not let hips sag toward the floor",
+    "Do not raise hips too high into a pike position",
+    "Avoid flaring elbows out to 90 degrees — strains the shoulder",
+    "Do not perform partial reps — chest must touch or nearly touch the floor",
+    "Avoid using momentum or bouncing",
+    "Maintain left-right symmetry — do not twist"
+  ],
+
+  "mistakes": [
+    "hip_sagging",
+    "hips_high",
+    "elbow_flare",
+    "shallow_depth",
+    "using_momentum",
+    "uneven_push"
+  ],
+
+  "mistake_explanations": {
+    "hip_sagging": {
+      "cause": "Weak core, weak glutes, or fatigue causing loss of the rigid plank position.",
+      "consequence": "Compresses the lumbar spine significantly. Also eliminates core and hip involvement — making it effectively a half-rep.",
+      "fix": "Squeeze your glutes and draw your belly button to your spine before and during every rep. If you cannot hold the plank, drop to your knees."
+    },
+    "hips_high": {
+      "cause": "Attempting to avoid hip sag by over-correcting — or tight pectoral muscles forcing the body forward.",
+      "consequence": "Shifts load off the chest onto the shoulders. It is essentially a partial downward-dog movement, not a push-up.",
+      "fix": "Visualise your body as a steel plank. Lower the hips until the body is a straight diagonal line from head to heels."
+    },
+    "elbow_flare": {
+      "cause": "Hand placement too wide, or lack of awareness of ideal elbow path.",
+      "consequence": "Places the shoulder joint in internal rotation under load — a very common cause of rotator cuff injuries.",
+      "fix": "Bring hands in slightly and think about pointing your elbows back toward your hips as you lower. The angle to your torso should be roughly 45 degrees."
+    },
+    "shallow_depth": {
+      "cause": "Fatigue, inadequate strength, or a habit of stopping early to get more reps.",
+      "consequence": "Partial reps only train a fraction of the muscle through its range — progress will plateau and strength will be uneven.",
+      "fix": "Do fewer reps fully than more reps shallowly. Chest should hover one inch from the floor at the bottom."
+    },
+    "using_momentum": {
+      "cause": "Rushing reps or using a body bounce at the bottom to make the push-up easier.",
+      "consequence": "Unloads the working muscles at the critical bottom position and adds jarring stress to the joints.",
+      "fix": "Use a 2-second descent, one-second pause at the bottom, then a strong push up. Quality massively over quantity."
+    },
+    "uneven_push": {
+      "cause": "Left-right strength imbalance or asymmetric hand placement.",
+      "consequence": "Develops a muscular imbalance and can create a rotational stress on the spine or shoulder over time.",
+      "fix": "Check hand placement is symmetrical. Do single-arm push-up negatives on the weaker side to correct the deficit."
+    }
+  },
+
+  "key_joints": ["elbow", "shoulder", "hip", "back"],
+
+  "ideal_ranges": {
+    "elbow_angle": { "min": 70, "max": 100, "optimal": 85, "buffer": 10, "weight": 0.4 },
+    "shoulder_angle": { "min": 40, "max": 90, "optimal": 65, "buffer": 10, "weight": 0.2 },
+    "back_angle": { "min": 160, "max": 180, "optimal": 175, "buffer": 5, "weight": 0.25 },
+    "hip_angle": { "min": 160, "max": 180, "optimal": 175, "buffer": 5, "weight": 0.15 }
+  },
+
+  "sensor_rules": {
+    "tilt": { "axis": "pitch", "max": 10, "optimal": 3, "unit": "degrees", "weight": 0.2, "note": "Body tilt — should be nearly zero in a flat plank position" },
+    "acceleration": { "axis": "vertical", "max": 1.3, "optimal": 1.02, "unit": "g", "weight": 0.3, "note": "Minimal vertical acceleration — controlled rep, no bounce" },
+    "gyro": { "axis": "roll", "max": 12, "optimal": 2, "unit": "deg/s", "weight": 0.2, "note": "Rotation — left-right twist should be absent" },
+    "stability": { "min": 0.90, "optimal": 0.97, "unit": "score_0_to_1", "weight": 0.25, "note": "High stability expected during a ground-contact exercise" },
+    "symmetry": { "max_diff": 0.08, "unit": "ratio", "weight": 0.05, "note": "Left and right arm loading should be equal" }
+  }
+}

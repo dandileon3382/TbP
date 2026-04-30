@@ -1,0 +1,91 @@
+{
+  "exercise": "squats",
+
+  "description": "The squat is a fundamental lower-body compound movement that trains the quadriceps, hamstrings, glutes, and core. Proper form is critical to protect the knees and lower back. A full squat develops functional strength and mobility that transfers to everyday activities and athletic performance.",
+
+  "cues": [
+    "Chest proud — imagine someone is about to read your t-shirt",
+    "Sit back like there is a chair behind you, don't just bend the knees",
+    "Drive your knees out in line with your pinky toes on the way down",
+    "Push the floor apart with your feet as you stand",
+    "Take a big breath in before you descend and brace your core like you expect a punch",
+    "Heels must stay glued to the floor throughout the entire movement"
+  ],
+
+  "rules": [
+    "Keep chest up and back straight throughout the movement",
+    "Push hips back before bending knees",
+    "Keep knees aligned with second and third toes",
+    "Lower until thighs are at least parallel to the ground",
+    "Drive through full foot to return to standing",
+    "Maintain balance and control throughout"
+  ],
+
+  "constraints": [
+    "Do not let knees collapse inward (valgus collapse)",
+    "Do not lift heels off the ground",
+    "Avoid excessive forward lean of the torso",
+    "Do not perform partial squats — reach parallel or below",
+    "Avoid using momentum — each rep should be controlled",
+    "Maintain left-right symmetry through the entire movement"
+  ],
+
+  "mistakes": [
+    "knees_caving_in",
+    "heels_lifting",
+    "forward_lean",
+    "shallow_squat",
+    "using_momentum",
+    "uneven_weight"
+  ],
+
+  "mistake_explanations": {
+    "knees_caving_in": {
+      "cause": "Weak hip abductors and glutes, or placing feet too narrow.",
+      "consequence": "Excessive medial knee stress leading to patellofemoral pain and long-term ligament damage (ACL/MCL).",
+      "fix": "Actively push your knees out in the direction of your pinky toes. Strengthen glute medius with resistance band walks before squatting."
+    },
+    "heels_lifting": {
+      "cause": "Limited ankle dorsiflexion mobility or weight shifted too far forward.",
+      "consequence": "Shifts load from glutes to lower back; destabilises the lift entirely.",
+      "fix": "Work on ankle mobility stretches daily. Temporarily elevate heels on a small plate to allow full depth until flexibility improves."
+    },
+    "forward_lean": {
+      "cause": "Tight hip flexors or thoracic spine stiffness causing the torso to fold forward.",
+      "consequence": "Transfers load to the lumbar spine — a major cause of lower back injury.",
+      "fix": "Keep your chest up by imagining someone is pulling your sternum toward the ceiling. Open up with thoracic rotations before your session."
+    },
+    "shallow_squat": {
+      "cause": "Insufficient hip and ankle mobility, or trying to use more weight than current mobility allows.",
+      "consequence": "Reduces glute activation and training stimulus; also trains a limited range of motion.",
+      "fix": "Aim for thighs at least parallel. Box squats to a target depth are a great training tool."
+    },
+    "using_momentum": {
+      "cause": "Bouncing at the bottom of the squat or rushing the descent.",
+      "consequence": "Reduces time under tension, offloads the muscles, and adds dangerous stress to the knee joint.",
+      "fix": "Slow the descent to 2–3 seconds, pause briefly at the bottom, then drive up with intention."
+    },
+    "uneven_weight": {
+      "cause": "Muscle imbalances between left and right side, or asymmetric foot placement.",
+      "consequence": "Over-stresses one joint and creates compensatory patterns that lead to injury.",
+      "fix": "Film yourself from the front and identify which side drops. Single-leg exercises like split squats help correct the weaker side."
+    }
+  },
+
+  "key_joints": ["knee", "hip", "ankle", "back"],
+
+  "ideal_ranges": {
+    "knee_angle": { "min": 70, "max": 100, "optimal": 85, "buffer": 10, "weight": 0.35 },
+    "hip_angle": { "min": 60, "max": 110, "optimal": 85, "buffer": 10, "weight": 0.25 },
+    "back_angle": { "min": 160, "max": 180, "optimal": 175, "buffer": 5, "weight": 0.25 },
+    "ankle_angle": { "min": 70, "max": 100, "optimal": 85, "buffer": 10, "weight": 0.15 }
+  },
+
+  "sensor_rules": {
+    "tilt": { "axis": "pitch", "max": 20, "optimal": 10, "unit": "degrees", "weight": 0.2, "note": "Forward tilt of torso — keep below 20 degrees" },
+    "acceleration": { "axis": "vertical", "max": 1.5, "optimal": 1.05, "unit": "g", "weight": 0.25, "note": "Spike indicates momentum; smooth acceleration preferred" },
+    "gyro": { "axis": "roll", "max": 15, "optimal": 3, "unit": "deg/s", "weight": 0.2, "note": "Lateral sway — should be minimal" },
+    "stability": { "min": 0.85, "optimal": 0.95, "unit": "score_0_to_1", "weight": 0.25, "note": "Composite balance score from MPU6050 variance" },
+    "symmetry": { "max_diff": 0.1, "unit": "ratio", "weight": 0.1, "note": "Left-right acceleration symmetry from dual sensor setup" }
+  }
+}

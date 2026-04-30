@@ -1,0 +1,89 @@
+{
+  "exercise": "situps",
+
+  "description": "The sit-up is a core-dominant exercise that trains the rectus abdominis, hip flexors, and obliques through hip flexion from a supine (lying) position. Proper form requires the core to do the work — not the neck, not momentum, and not the feet. A well-executed sit-up goes through the full range of motion from flat-back lying to fully upright, controlled in both directions.",
+
+  "cues": [
+    "Lie flat with knees bent at about 90 degrees — feet flat on the floor",
+    "Cross your arms over your chest or place fingertips lightly behind your ears — do not pull your head",
+    "Breathe out hard and drive your belly button toward your spine to begin the curl",
+    "Your lower back should peel off the floor like a scroll — segment by segment",
+    "Pause at the top for one second when your elbows nearly touch your knees",
+    "Lower back down slowly — fight gravity all the way down, that is half the exercise"
+  ],
+
+  "rules": [
+    "Engage the core to lift the torso — do not pull the neck",
+    "Keep feet grounded on the floor throughout",
+    "Move in a controlled, smooth motion — no jerking",
+    "Keep the neck neutral — chin neither tucked to chest nor jutting forward",
+    "Control the descent — do not flop back down",
+    "Maintain left-right symmetry — do not twist or rotate"
+  ],
+
+  "constraints": [
+    "Do not pull the neck with hands — neck should be relaxed",
+    "Do not use momentum — the core must do the work",
+    "Avoid lifting feet off the floor",
+    "Avoid jerky, rushed motion",
+    "Avoid shallow reps — reach fully upright at the top"
+  ],
+
+  "mistakes": [
+    "neck_pulling",
+    "using_momentum",
+    "feet_lifting",
+    "shallow_range",
+    "jerky_motion",
+    "asymmetry"
+  ],
+
+  "mistake_explanations": {
+    "neck_pulling": {
+      "cause": "Using the hands to yank the head and neck forward instead of using the abdominals to curl the torso up.",
+      "consequence": "Cervical strain and potential disc injury. Also means the abs are NOT doing the work — making the exercise pointless.",
+      "fix": "Place hands lightly on your temples without gripping. The neck should be completely relaxed. If your neck hurts, your core is too weak — do less range of motion until you build strength."
+    },
+    "using_momentum": {
+      "cause": "Swinging the arms forward or bouncing up from the floor to generate upward force.",
+      "consequence": "The core is bypassed at the critical initiation phase — the hardest part of the movement — giving you zero benefit for that phase.",
+      "fix": "Exhale and begin the curl by pressing the small of your back into the floor first. Initiate slowly. If you must swing, reduce range of motion."
+    },
+    "feet_lifting": {
+      "cause": "Hip flexors too tight or too dominant — when the core cannot generate enough force, the hip flexors take over and pull the feet up.",
+      "consequence": "Hip flexors rather than abs become the primary mover — strains the lumbar spine and defeats the purpose.",
+      "fix": "Anchor your feet under a sofa or use a sit-up board. Focus on curling from the chest, not lifting from the hips."
+    },
+    "shallow_range": {
+      "cause": "Stopping the ascent before reaching a fully upright position — usually due to fatigue or habit.",
+      "consequence": "The abdominal muscles are never fully contracted. You are only training the first third of the movement.",
+      "fix": "Pause at the top when your torso is fully upright and your elbows are near your knees. That is the full contraction position."
+    },
+    "jerky_motion": {
+      "cause": "Fatigue causing loss of control, or rushing reps.",
+      "consequence": "Sudden force changes stress the spine at the thoraco-lumbar junction — a common source of back pain.",
+      "fix": "Take at least 2 seconds on the way up and 2 seconds lowering back down. Smooth is strong."
+    },
+    "asymmetry": {
+      "cause": "Oblique imbalances or habit of rotating toward one side during the curl.",
+      "consequence": "Develops asymmetric core strength. If done repeatedly, creates postural imbalances.",
+      "fix": "Focus on your nose pointing straight at the ceiling throughout the movement. Record yourself from the front to check for any rotation."
+    }
+  },
+
+  "key_joints": ["hip", "back", "neck"],
+
+  "ideal_ranges": {
+    "hip_angle": { "min": 30, "max": 90, "optimal": 60, "buffer": 10, "weight": 0.4 },
+    "back_angle": { "min": 30, "max": 90, "optimal": 60, "buffer": 10, "weight": 0.4 },
+    "neck_angle": { "min": 150, "max": 180, "optimal": 170, "buffer": 5, "weight": 0.2 }
+  },
+
+  "sensor_rules": {
+    "tilt": { "axis": "pitch", "max": 90, "optimal": 60, "unit": "degrees", "weight": 0.2, "note": "Tracks the torso lifting angle through the full sit-up range" },
+    "acceleration": { "axis": "vertical", "max": 2.0, "optimal": 1.1, "unit": "g", "weight": 0.3, "note": "Spike indicates momentum-driven movement — should stay moderate" },
+    "gyro": { "axis": "roll", "max": 15, "optimal": 3, "unit": "deg/s", "weight": 0.2, "note": "Rotation/asymmetry indicator — should be near zero" },
+    "stability": { "min": 0.75, "optimal": 0.88, "unit": "score_0_to_1", "weight": 0.2, "note": "Stability is naturally lower during situps — trend matters" },
+    "symmetry": { "max_diff": 0.12, "unit": "ratio", "weight": 0.1, "note": "Core twist detection via left-right sensor comparison" }
+  }
+}

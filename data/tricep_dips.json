@@ -1,0 +1,90 @@
+{
+  "exercise": "tricep_dips",
+
+  "description": "Tricep dips are a bodyweight pushing exercise that isolates the triceps brachii, with secondary involvement of the anterior deltoids and lower pectorals. Performed on parallel bars or a bench, the movement demands shoulder stability and controlled elbow flexion. Depth and control are the two most important factors — going too deep or too shallow both undermine the exercise's effectiveness and safety.",
+
+  "cues": [
+    "Set up with straight arms and locked elbows to start — this is your top position",
+    "Keep your torso upright and slightly leaning forward — do not go fully vertical",
+    "Lower yourself until your elbows reach exactly 90 degrees — no deeper",
+    "Think about driving your palms down into the surface to push yourself up",
+    "Keep your elbows pointing straight behind you — not flaring out to the sides",
+    "Controlled descent — do not drop. Imagine you are lowering onto a bed of nails"
+  ],
+
+  "rules": [
+    "Keep elbows pointing backward throughout the movement",
+    "Lower until elbows reach approximately 90 degrees",
+    "Keep shoulders stable — do not shrug toward ears",
+    "Stay close to the bench or parallel bars — do not drift forward",
+    "Push through palms to return to the top position",
+    "Control the movement — no dropping, no bouncing"
+  ],
+
+  "constraints": [
+    "Do not flare elbows out to the sides",
+    "Do not shrug shoulders up toward ears",
+    "Do not drift forward away from the bench or bars",
+    "Avoid going too shallow — elbows must be at least 90 degrees",
+    "Avoid using momentum or bouncing at the bottom",
+    "Do not lock elbows aggressively at the top"
+  ],
+
+  "mistakes": [
+    "elbow_flare",
+    "shoulder_shrugging",
+    "forward_drift",
+    "shallow_depth",
+    "using_momentum",
+    "too_deep"
+  ],
+
+  "mistake_explanations": {
+    "elbow_flare": {
+      "cause": "Tight pectorals drawing elbows outward, or incorrect hand placement.",
+      "consequence": "Shifts load from the triceps onto the front deltoid and places the shoulder in a vulnerable impingement position.",
+      "fix": "Consciously squeeze elbows toward each other throughout the movement. Imagine there is a ball between your arms you are gripping."
+    },
+    "shoulder_shrugging": {
+      "cause": "Weak shoulder depressors or the body trying to cheat by using upper traps to initiate the push.",
+      "consequence": "Neck and upper trap strain. Also reduces tricep involvement because the movement becomes a shoulder elevation.",
+      "fix": "Before you dip, actively pull your shoulders down away from your ears. Hold them there throughout every rep."
+    },
+    "forward_drift": {
+      "cause": "Drifting away from the bench changes the exercise into more of a chest dip and unloads the triceps.",
+      "consequence": "The chest and anterior delt take over — you are no longer doing a tricep dip effectively.",
+      "fix": "Keep your back brushing the bench or bar throughout. Think: straight down, straight up."
+    },
+    "shallow_depth": {
+      "cause": "Stopping before elbows reach 90 degrees, often due to fatigue or to make reps easier.",
+      "consequence": "The tricep is only trained in its shortened position — the most important stretch point never loads the muscle properly.",
+      "fix": "Aim for at least 90 degrees at the elbow. If you cannot reach it with good form, build strength with negatives."
+    },
+    "using_momentum": {
+      "cause": "Bouncing at the bottom to generate upward force instead of using tricep strength.",
+      "consequence": "Puts sudden high stress on the elbow joint at an already vulnerable flexed position.",
+      "fix": "Pause for one second at the bottom. Then drive up smoothly and with control."
+    },
+    "too_deep": {
+      "cause": "Elbow bending past 90 degrees puts significant strain on the anterior shoulder capsule.",
+      "consequence": "Risk of shoulder impingement and anterior capsule stress — a very common dip injury.",
+      "fix": "Stop the descent when your elbows form a right angle. Do not chase extra depth — it provides no additional benefit."
+    }
+  },
+
+  "key_joints": ["elbow", "shoulder", "wrist"],
+
+  "ideal_ranges": {
+    "elbow_angle": { "min": 80, "max": 100, "optimal": 90, "buffer": 10, "weight": 0.5 },
+    "shoulder_angle": { "min": 20, "max": 70, "optimal": 45, "buffer": 10, "weight": 0.3 },
+    "wrist_angle": { "min": 160, "max": 180, "optimal": 175, "buffer": 5, "weight": 0.2 }
+  },
+
+  "sensor_rules": {
+    "tilt": { "axis": "pitch", "max": 20, "optimal": 8, "unit": "degrees", "weight": 0.2, "note": "Forward lean angle — small forward tilt is acceptable in dips" },
+    "acceleration": { "axis": "vertical", "max": 1.6, "optimal": 1.05, "unit": "g", "weight": 0.3, "note": "Spike means you are dropping — stay controlled" },
+    "gyro": { "axis": "roll", "max": 10, "optimal": 2, "unit": "deg/s", "weight": 0.2, "note": "Lateral rotation should be absent" },
+    "stability": { "min": 0.85, "optimal": 0.94, "unit": "score_0_to_1", "weight": 0.25, "note": "Upper-body stability index" },
+    "symmetry": { "max_diff": 0.1, "unit": "ratio", "weight": 0.05, "note": "Equal load on both arms" }
+  }
+}

@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+chromadb
+sentence-transformers
+google-genai
+pydantic
+pydantic-settings
+mediapipe
+opencv-python
+websockets

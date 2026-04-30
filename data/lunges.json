@@ -1,0 +1,90 @@
+{
+  "exercise": "lunges",
+
+  "description": "The lunge is a unilateral lower-body exercise that develops strength, balance, and coordination in the quads, hamstrings, and glutes independently for each leg. Because each leg works separately, lunges also reveal and correct left-right muscle imbalances. Proper form demands control in two planes simultaneously — forward and vertical.",
+
+  "cues": [
+    "Stand tall like a soldier — shoulders back, chest open",
+    "Step far enough that your front shin stays vertical when you drop down",
+    "Drop the back knee straight down — do not let it swing forward",
+    "Your front knee tracks over your second toe — not your big toe, not inside it",
+    "Drive through the heel of your front foot as you push back up",
+    "Keep your hips level — do not let one hip hike up"
+  ],
+
+  "rules": [
+    "Keep torso upright throughout the movement",
+    "Front knee aligned with second and third toes",
+    "Lower back knee toward the ground in a controlled manner",
+    "Push through the front heel to return to standing",
+    "Maintain balance — do not wobble side to side",
+    "Keep hips level — no lateral tilt"
+  ],
+
+  "constraints": [
+    "Do not collapse front knee inward (valgus)",
+    "Do not lean the torso forward",
+    "Avoid shallow lunges — back knee should clear 90 degrees or lower",
+    "Avoid using momentum or stepping unevenly",
+    "Maintain symmetry between left and right legs"
+  ],
+
+  "mistakes": [
+    "leaning_forward",
+    "knee_collapse",
+    "shallow_lunge",
+    "loss_of_balance",
+    "using_momentum",
+    "uneven_step"
+  ],
+
+  "mistake_explanations": {
+    "leaning_forward": {
+      "cause": "Tight hip flexors or weak core failing to keep the torso upright under load.",
+      "consequence": "Forward lean shifts load onto the lower back and reduces glute activation in the front leg.",
+      "fix": "Think of a string pulling the top of your head to the ceiling. Engage your abs. Stretch hip flexors before lunging."
+    },
+    "knee_collapse": {
+      "cause": "Weak glute medius or poor neuromuscular control of the knee on the front leg.",
+      "consequence": "Medial knee stress — identical risk to squats. A consistent pattern leads to patellar tracking issues.",
+      "fix": "Actively press the front knee outward toward your pinky toe. Add lateral band walks to your warmup."
+    },
+    "shallow_lunge": {
+      "cause": "Short step length or insufficient hip mobility prevents a deep descent.",
+      "consequence": "Reduced range of motion means less muscle fiber recruitment — you are only getting partial benefit.",
+      "fix": "Take a bigger step forward. The back knee should drop to within 2–3 inches of the floor."
+    },
+    "loss_of_balance": {
+      "cause": "Weak stabilisers, particularly the ankle and hip, on the front leg.",
+      "consequence": "Compensatory movements develop and the risk of ankle/knee injury increases.",
+      "fix": "Practice static split squats (stationary lunges) before adding movement. Build single-leg balance training."
+    },
+    "using_momentum": {
+      "cause": "Rushing reps or using a bounce at the bottom to initiate the ascent.",
+      "consequence": "Reduces muscle engagement and adds uncontrolled joint stress at the lowest position.",
+      "fix": "Hold the bottom position for one second before pressing back up. Think: slow down, power up."
+    },
+    "uneven_step": {
+      "cause": "Stepping too short on one side or placing feet on an imaginary tightrope rather than hip-width.",
+      "consequence": "Asymmetric loading, lateral instability, and reinforcing muscle imbalances.",
+      "fix": "Step forward so feet remain shoulder-width apart laterally — as if walking on two parallel train tracks, not one rail."
+    }
+  },
+
+  "key_joints": ["front_knee", "back_knee", "hip", "back"],
+
+  "ideal_ranges": {
+    "front_knee_angle": { "min": 80, "max": 100, "optimal": 90, "buffer": 10, "weight": 0.35 },
+    "back_knee_angle": { "min": 80, "max": 110, "optimal": 95, "buffer": 10, "weight": 0.2 },
+    "hip_angle": { "min": 70, "max": 120, "optimal": 95, "buffer": 10, "weight": 0.25 },
+    "back_angle": { "min": 160, "max": 180, "optimal": 175, "buffer": 5, "weight": 0.2 }
+  },
+
+  "sensor_rules": {
+    "tilt": { "axis": "pitch", "max": 15, "optimal": 5, "unit": "degrees", "weight": 0.2, "note": "Forward tilt of torso — ideally near zero in a lunge" },
+    "acceleration": { "axis": "vertical", "max": 1.4, "optimal": 1.03, "unit": "g", "weight": 0.25, "note": "Smooth descent and ascent — no bouncing" },
+    "gyro": { "axis": "roll", "max": 20, "optimal": 5, "unit": "deg/s", "weight": 0.2, "note": "Lateral sway during lunge step — keep controlled" },
+    "stability": { "min": 0.82, "optimal": 0.93, "unit": "score_0_to_1", "weight": 0.25, "note": "Balance score — single-leg stance is inherently harder" },
+    "symmetry": { "max_diff": 0.15, "unit": "ratio", "weight": 0.1, "note": "Compare left vs right leg sensor readings for balance" }
+  }
+}
